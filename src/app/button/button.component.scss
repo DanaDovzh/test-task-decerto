@@ -1,0 +1,22 @@
+@import '../../styles.scss';
+
+.btn {
+  &__main {
+    width: $width-btn;
+    height: 48px;
+    margin: 10px !important;
+    position: relative !important;
+    background-color: #6a6769b5;
+  }
+  &__icon {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    &--tooltip {
+      background: #eea0cacf;
+      font-size: 12px;
+      margin-top: -50px;
+    }
+  }
+}
+
