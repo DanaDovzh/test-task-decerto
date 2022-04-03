@@ -29,13 +29,18 @@ export class PanelComponent implements OnInit {
 
   },{
     id: 4,
-    name: 'Tickets for movie and theater',
+    name: 'Tickets for movies',
     description: 'New films for you'
 
   },{
     id: 5,
     name: 'Clothes',
     description: 'Comfortable clothes'
+
+  }, {
+    id: 6,
+    name: 'Sweat',
+    description: 'The biggest cake'
 
   }])
   objectKeys = Object.keys;
