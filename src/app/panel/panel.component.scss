@@ -26,6 +26,13 @@
       align-items: center;
       justify-content: center;
     }
+    @media screen  and (max-width: 435px) {
+      font-size: 25px;
+    }
+    @media screen  and (max-width: 380px) {
+      font-size: 18px;
+      letter-spacing: 0px;
+    }
     }
   &__btns {
     display: flex;
@@ -33,6 +40,11 @@
     justify-content: center;
     flex-flow: wrap;
   }
+}
+
+::ng-deep.mat-expansion-panel-body {
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes neon {

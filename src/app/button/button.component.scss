@@ -7,6 +7,10 @@
     margin: 10px !important;
     position: relative !important;
     background-color: #6a6769b5;
+    @media screen and (max-width: 350px) {
+      width: $width-btn-sm;
+      font-size: 12px;
+    }
   }
   &__icon {
     position: absolute;
@@ -20,3 +24,9 @@
   }
 }
 
+
+::ng-deep {
+    snack-bar-container.mat-snack-bar-container {
+    background: #b8656a !important;
+  }
+}
