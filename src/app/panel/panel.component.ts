@@ -39,7 +39,7 @@ export class PanelComponent implements OnInit {
 
   }, {
     id: 6,
-    name: 'Sweat',
+    name: 'Sweets',
     description: 'The biggest cake'
 
   }])

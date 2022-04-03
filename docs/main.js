@@ -67,7 +67,7 @@ class PanelComponent {
                 description: 'Comfortable clothes'
             }, {
                 id: 6,
-                name: 'Sweat',
+                name: 'Sweets',
                 description: 'The biggest cake'
             }]);
         this.objectKeys = Object.keys;
