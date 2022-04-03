@@ -1,0 +1,13 @@
+<button
+    mat-raised-button
+    (click)="openSnackBar(infoBtn.description)"
+    class="btn__main">
+  {{infoBtn.name}}
+  <mat-icon
+    class="btn__icon"
+    matTooltipClass="btn__icon--tooltip"
+    aria-hidden="false"
+    aria-label="Example home icon"
+    [matTooltip]="'Info about ' + infoBtn.name.toLowerCase()"
+    mat-raised-above [matTooltipPosition]="'above'">help</mat-icon>
+</button>

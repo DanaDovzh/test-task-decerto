@@ -1,0 +1,57 @@
+@import '../../styles.scss';
+
+.panel {
+  margin: 50px;
+  background: transparent;
+  &__header {
+    background: transparent !important;
+  }
+  &__title {
+    margin: 40px auto;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 35px;
+  color: #121212;
+  text-align: center;
+  letter-spacing: 5px;
+  text-shadow: 0 2px 1px #747474,
+      -1px 3px 1px #767676,
+      -2px 5px 1px #787878,
+      -3px 7px 1px #7a7a7a,
+      -4px 9px 1px #7f7f7f,
+      -5px 11px 1px #9a9999;
+    &--container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    }
+  &__btns {
+    display: flex;
+    max-width: 3*$width-btn + 100px;
+    justify-content: center;
+    flex-flow: wrap;
+  }
+}
+
+@keyframes neon {
+  from {
+    text-shadow:
+    0 0 3px rgba(202,228,225,0.92),
+    0 0 15px rgba(202,228,225,0.34),
+    0 0 6px rgba(30,132,242,0.52),
+    0 0 10.5px rgba(30,132,242,0.92),
+    0 0 17px rgba(30,132,242,0.78),
+    0 0 27px rgba(30,132,242,0.92);
+  }
+  to {
+    text-shadow:
+    0 0 3px rgba(202,228,225,0.98),
+    0 0 15px rgba(202,228,225,0.42),
+    0 0 6px rgba(30,132,242,0.58),
+    0 0 11px rgba(30,132,242,0.84),
+    0 0 19px rgba(30,132,242,0.88),
+    0 0 30px rgba(30,132,242,1);
+  }
+}

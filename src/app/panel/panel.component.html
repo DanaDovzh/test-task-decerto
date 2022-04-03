@@ -1,0 +1,14 @@
+
+  <mat-expansion-panel class="panel" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header class="panel__header">
+      <mat-panel-title class="panel__title--container">
+        <h1 class="panel__title">List of goods</h1>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <form [formGroup]="products" class="panel__btns">
+      <div *ngFor="let exp of objectKeys(products.value); let n=index">
+       <app-button [formControlName]="n"></app-button>
+      </div>
+    </form>
+  </mat-expansion-panel>
