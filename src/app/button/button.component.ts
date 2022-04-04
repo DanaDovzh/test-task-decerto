@@ -1,40 +1,27 @@
-import { Component, forwardRef, ViewEncapsulation } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { InfoBtn } from './../../models/product.model';
 
 @Component({
   selector: 'app-button',
   templateUrl: './button.component.html',
-  styleUrls: ['./button.component.scss'],
-  encapsulation: ViewEncapsulation.None,
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => ButtonComponent),
-      multi: true
-    }
-  ]
+  styleUrls: ['./button.component.scss']
 })
-
-export class ButtonComponent implements ControlValueAccessor {
+export class ButtonComponent implements OnInit {
 
   constructor(private _snackBar: MatSnackBar){}
-  onChange: any;
-  onTouch: any;
-  registerOnChange(fn: any): void {
-    this.onChange = fn;
-  }
-  registerOnTouched(fn: any): void {
-    this.onTouch = fn;
+  infoBtn: InfoBtn;
+
+  @Input() product;
+  @Output() selectProduct = new EventEmitter();
+
+  ngOnInit(): void {
   }
 
-  writeValue(infoBtn) {
-    this.infoBtn = infoBtn;
-  }
-
-  infoBtn;
-  openSnackBar(message: string) {
-    console.log(this.infoBtn);
-    this._snackBar.open(message, 'Close');
+  openSnackBar(message: string, product: InfoBtn): void {
+    this.selectProduct.emit(product);
+    this._snackBar.open(message, 'Close', {
+      duration: 1000
+    });
   }
 }

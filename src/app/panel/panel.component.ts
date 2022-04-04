@@ -1,50 +1,51 @@
-import { variable } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder} from '@angular/forms';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
+import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
+import { InfoBtn } from 'src/models/product.model';
 
 @Component({
   selector: 'app-panel',
   templateUrl: './panel.component.html',
-  styleUrls: ['./panel.component.scss']
+  styleUrls: ['./panel.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => PanelComponent),
+      multi: true
+    }
+  ]
 })
-export class PanelComponent implements OnInit {
+export class PanelComponent implements ControlValueAccessor {
 
-  constructor(private fb: FormBuilder) { }
-  panelOpenState: boolean = true;
+  constructor() { }
 
-  products = this.fb.group([{
-    id: 1,
-    name: 'Books',
-    description: 'List of books'
+  onChange: any;
+  onTouch: any;
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+  registerOnTouched(fn: any): void {
+    this.onTouch = fn;
+  }
 
-  },{
-    id: 2,
-    name: 'Tea and coffee',
-    description: 'Black or green tea; coffee with milk'
+  writeValue(infoBtn) {
+    if(infoBtn){
+      console.log(`Chosen element: `, infoBtn)
+    }
+  }
 
-  },{
-    id: 3,
-    name: 'Flowers',
-    description: 'Wonderful flowers'
+  infoBtn;
 
-  },{
-    id: 4,
-    name: 'Tickets for movies',
-    description: 'New films for you'
+  selectedProduct = new FormControl('');
+  panelOpenState: boolean = false;
 
-  },{
-    id: 5,
-    name: 'Clothes',
-    description: 'Comfortable clothes'
+  @Input() products: InfoBtn[];
+  @Output() selected = new EventEmitter();
 
-  }, {
-    id: 6,
-    name: 'Sweets',
-    description: 'The biggest cake'
-
-  }])
-  objectKeys = Object.keys;
   ngOnInit(): void {
+  }
+
+  selectProduct(event) {
+    this.selected.emit(event)
   }
 
 }

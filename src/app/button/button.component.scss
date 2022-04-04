@@ -11,6 +11,9 @@
       width: $width-btn-sm;
       font-size: 12px;
     }
+    &:focus {
+      background-color: #340123b5;
+    }
   }
   &__icon {
     position: absolute;

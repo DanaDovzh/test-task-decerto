@@ -7,11 +7,8 @@
     background: transparent !important;
   }
   &__title {
-    margin: 40px auto;
   font-family: 'Ubuntu', sans-serif;
-  font-size: 35px;
   color: #121212;
-  text-align: center;
   letter-spacing: 5px;
   text-shadow: 0 2px 1px #747474,
       -1px 3px 1px #767676,
@@ -19,18 +16,10 @@
       -3px 7px 1px #7a7a7a,
       -4px 9px 1px #7f7f7f,
       -5px 11px 1px #9a9999;
-    &--container {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
     @media screen  and (max-width: 435px) {
-      font-size: 25px;
+      letter-spacing: 2px;
     }
     @media screen  and (max-width: 380px) {
-      font-size: 18px;
       letter-spacing: 0px;
     }
     }

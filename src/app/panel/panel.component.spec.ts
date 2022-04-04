@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { PanelComponent } from './panel.component';
 
@@ -19,7 +20,7 @@ describe('PanelComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('panel should create', () => {
     expect(component).toBeTruthy();
   });
 });
