@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PanelComponent } from './panel.component';
 
 describe('PanelComponent', () => {
@@ -9,9 +9,9 @@ describe('PanelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PanelComponent ]
-    })
-    .compileComponents();
+      declarations: [PanelComponent],
+      imports: [MatExpansionModule, BrowserAnimationsModule]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -20,7 +20,18 @@ describe('PanelComponent', () => {
     fixture.detectChanges();
   });
 
-  it('panel should create', () => {
+  it('should create a panel', () => {
     expect(component).toBeTruthy();
+  });
+
+  it(`should have as title 'List of goods'`, () => {
+    expect(component.panelTitle).toEqual('List of goods');
+ });
+
+  it('should render title for the panel', () => {
+    const fixture = TestBed.createComponent(PanelComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.panel h1').textContent).toContain('List of goods!');
   });
 });

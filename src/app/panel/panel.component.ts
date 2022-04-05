@@ -1,5 +1,15 @@
-import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
-import { ControlValueAccessor, FormBuilder, FormControl, FormGroup, NG_VALUE_ACCESSOR} from '@angular/forms';
+import {
+  Component,
+  EventEmitter,
+  forwardRef,
+  Input,
+  Output
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormControl,
+  NG_VALUE_ACCESSOR
+} from '@angular/forms';
 import { InfoBtn } from 'src/models/product.model';
 
 @Component({
@@ -10,26 +20,30 @@ import { InfoBtn } from 'src/models/product.model';
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PanelComponent),
-      multi: true
-    }
-  ]
+      multi: true,
+    },
+  ],
 })
 export class PanelComponent implements ControlValueAccessor {
-
-  constructor() { }
-
+  constructor() {}
+  @Input() products: InfoBtn[];
+  @Output() selected = new EventEmitter();
+  
+  panelTitle: string = 'List of goods';
   onChange: any;
   onTouch: any;
+
   registerOnChange(fn: any): void {
     this.onChange = fn;
   }
+
   registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }
 
   writeValue(infoBtn) {
-    if(infoBtn){
-      console.log(`Chosen element: `, infoBtn)
+    if (infoBtn) {
+      console.log(`Chosen element: `, infoBtn);
     }
   }
 
@@ -38,14 +52,10 @@ export class PanelComponent implements ControlValueAccessor {
   selectedProduct = new FormControl('');
   panelOpenState: boolean = false;
 
-  @Input() products: InfoBtn[];
-  @Output() selected = new EventEmitter();
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   selectProduct(event) {
-    this.selected.emit(event)
+    this.selected.emit(event);
   }
-
 }

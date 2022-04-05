@@ -1,14 +1,12 @@
-
-  <mat-expansion-panel class="panel" (opened)="panelOpenState != true"
-                       (closed)="panelOpenState != false">
-    <mat-expansion-panel-header class="panel__header">
-      <mat-panel-title class="panel__title--container">
-        <h1 class="panel__title">List of goods</h1>
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <form class="panel__btns">
-      <div *ngFor="let exp of products">
-       <app-button [product]="exp" (selectProduct)="selectProduct($event)"></app-button>
-      </div>
-    </form>
-  </mat-expansion-panel>
+<mat-expansion-panel class="panel" (opened)="panelOpenState != true" (closed)="panelOpenState != false">
+  <mat-expansion-panel-header class="panel__header">
+    <mat-panel-title class="panel__title--container">
+      <h1 class="panel__title"> {{ panelTitle }}!</h1>
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <form class="panel__btns">
+    <div *ngFor="let exp of products">
+      <app-button [product]="exp" (selectProduct)="selectProduct($event)"></app-button>
+    </div>
+  </form>
+</mat-expansion-panel>
